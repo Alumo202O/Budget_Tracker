@@ -1,331 +1,374 @@
-/* =========================
-   BUDGET TRACKER - WEEK 3
-   Visual Design Challenge
-========================= */
-
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
+/* =================================
+   SPENDWISE DASHBOARD
+   CSS Grid + Flexbox
+================================= */
 
 
-/* =========================
-   COLOR PALETTE
-========================= */
+/* =================================
+   THEME VARIABLES
+================================= */
 
 :root {
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --heading: #1e3a8a;
-    --background: #f1f5f9;
-    --card: #ffffff;
-    --text: #1f2937;
-    --muted: #64748b;
-    --border: #cbd5e1;
-    --row: #eff6ff;
-    --hover: #dbeafe;
+    --brand-color: #2563eb;
+    --accent-color: #22c55e;
+
+    --surface-color: #ffffff;
+    --background-color: #f1f5f9;
+
+    --primary-text: #1e293b;
+    --secondary-text: #64748b;
+
+    --border-color: #e2e8f0;
 }
 
 
-/* =========================
-   PAGE
-========================= */
+/* =================================
+   GLOBAL STYLES
+================================= */
+
+* {
+    box-sizing: border-box;
+}
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--background);
-    color: var(--text);
-
     margin: 0;
+
+    font-family: 'Inter', sans-serif;
+
+    background-color: var(--background-color);
+    color: var(--primary-text);
+}
+
+
+/* =================================
+   DASHBOARD GRID
+================================= */
+
+.dashboard {
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns: 240px 1fr;
+}
+
+
+/* =================================
+   SIDEBAR
+================================= */
+
+.sidebar {
+    background-color: var(--surface-color);
+
+    padding: 25px 20px;
+
+    border-right: 1px solid var(--border-color);
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Logo */
+
+.logo {
+    margin-bottom: 35px;
+}
+
+.logo h2 {
+    margin: 0;
+
+    font-family: 'Poppins', sans-serif;
+
+    color: var(--brand-color);
+}
+
+
+/* Navigation */
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.navigation a {
+    padding: 12px 15px;
+
+    text-decoration: none;
+
+    color: var(--secondary-text);
+
+    border-radius: 8px;
+
+    transition: background-color 0.2s ease,
+                color 0.2s ease;
+}
+
+.navigation a:hover {
+    background-color: #eff6ff;
+
+    color: var(--brand-color);
+}
+
+.navigation a.active {
+    background-color: var(--brand-color);
+
+    color: white;
+}
+
+
+/* =================================
+   MAIN CONTENT
+================================= */
+
+.main-content {
     padding: 30px;
 }
 
 
-/* =========================
-   MAIN HEADING CARD
-========================= */
+/* =================================
+   HEADER
+================================= */
 
-header {
-    background-color: var(--card);
+.dashboard-header {
+    background-color: var(--surface-color);
 
-    margin: 0 auto 25px auto;
-    padding: 25px;
+    padding: 22px 25px;
 
-    max-width: 1000px;
+    margin-bottom: 25px;
 
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-color);
+
     border-radius: 12px;
 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
 }
 
-h1 {
+
+/* Header text */
+
+.dashboard-header h1 {
+    margin: 0 0 5px 0;
+
     font-family: 'Poppins', sans-serif;
-    color: var(--primary-dark);
 
-    margin: 0 0 8px 0;
+    color: var(--primary-text);
 }
 
-header p {
-    color: var(--muted);
-
+.dashboard-header p {
     margin: 0;
+
+    color: var(--secondary-text);
 }
 
 
-/* =========================
-   SECTION HEADINGS
-========================= */
+/* Profile */
 
-h2 {
+.profile {
+    background-color: var(--brand-color);
+
+    color: white;
+
+    padding: 10px 16px;
+
+    border-radius: 20px;
+
+    font-weight: 600;
+}
+
+
+/* =================================
+   CATEGORY GRID
+================================= */
+
+.category-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =================================
+   CATEGORY CARDS
+================================= */
+
+.category-card {
+    background-color: var(--surface-color);
+
+    padding: 22px;
+
+    min-height: 180px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    cursor: pointer;
+}
+
+
+/* Hover interaction */
+
+.category-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Keyboard focus */
+
+.category-card:focus {
+    outline: 3px solid var(--brand-color);
+
+    outline-offset: 3px;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Card top */
+
+.card-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.card-top h3 {
+    margin: 0;
+
     font-family: 'Poppins', sans-serif;
-    color: var(--heading);
 
-    margin-top: 0;
-    margin-bottom: 20px;
+    color: var(--primary-text);
 }
 
 
-/* =========================
-   ADD EXPENSE FORM CARD
-========================= */
+/* Card icon */
 
-.add-expense-section {
-    background-color: var(--card);
-
-    max-width: 1000px;
-    margin: 0 auto 25px auto;
-    padding: 25px;
-
-    border: 1px solid var(--border);
-    border-radius: 12px;
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+.card-icon {
+    font-size: 28px;
 }
 
 
-/* Form inputs */
+/* Card bottom */
 
-.add-expense-section input,
-.add-expense-section select {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
+.card-bottom {
+    display: flex;
 
-    padding: 12px;
+    flex-direction: column;
 
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    gap: 6px;
+}
 
-    margin-right: 10px;
-    margin-bottom: 10px;
+.card-bottom p {
+    margin: 0;
 
-    box-sizing: border-box;
+    color: var(--secondary-text);
+
+    font-size: 14px;
+}
+
+.card-bottom strong {
+    font-size: 24px;
+
+    color: var(--brand-color);
 }
 
 
-/* Input focus */
-
-.add-expense-section input:focus,
-.add-expense-section select:focus {
-    outline: none;
-
-    border-color: var(--primary);
-
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-}
-
-
-/* =========================
-   BUTTON
-========================= */
-
-button {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-
-    background-color: var(--primary);
-    color: white;
-
-    padding: 12px 20px;
-
-    border: none;
-    border-radius: 8px;
-
-    cursor: pointer;
-
-    margin-bottom: 10px;
-}
-
-button:hover {
-    background-color: var(--primary-dark);
-}
-
-
-/* =========================
-   EXPENSE TABLE CARD
-========================= */
-
-.expenses-section {
-    background-color: var(--card);
-
-    max-width: 1000px;
-    margin: 0 auto 25px auto;
-    padding: 25px;
-
-    border: 1px solid var(--border);
-    border-radius: 12px;
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-
-/* =========================
-   EXPENSE TABLE
-========================= */
-
-table {
-    width: 100%;
-
-    border-collapse: collapse;
-
-    margin-top: 10px;
-}
-
-
-/* Table header */
-
-th {
-    background-color: var(--primary);
-    color: white;
-
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-
-    text-align: left;
-
-    padding: 14px;
-
-    border: 1px solid var(--primary-dark);
-}
-
-
-/* Table cells */
-
-td {
-    padding: 14px;
-
-    border: 1px solid var(--border);
-}
-
-
-/* Alternating rows */
-
-tbody tr:nth-child(even) {
-    background-color: var(--row);
-}
-
-tbody tr:nth-child(odd) {
-    background-color: white;
-}
-
-
-/* Hover effect */
-
-tbody tr:hover {
-    background-color: var(--hover);
-}
-
-
-/* =========================
-   DETAILS SECTION
-========================= */
-
-details {
-    max-width: 1000px;
-
-    margin: 0 auto 25px auto;
-    padding: 20px;
-
-    background-color: var(--card);
-
-    border: 1px solid var(--border);
-    border-radius: 12px;
-}
-
-summary {
-    font-weight: 600;
-    color: var(--primary-dark);
-
-    cursor: pointer;
-}
-
-
-/* =========================
-   VIDEO SECTION
-========================= */
-
-.video-section {
-    max-width: 1000px;
-
-    margin: 0 auto 25px auto;
-    padding: 25px;
-
-    background-color: var(--card);
-
-    border: 1px solid var(--border);
-    border-radius: 12px;
-}
-
-.video-section iframe {
-    max-width: 100%;
-
-    border-radius: 8px;
-}
-
-
-/* =========================
-   LOGO / IMAGE
-========================= */
-
-header img {
-    border-radius: 8px;
-
-    margin-right: 10px;
-
-    vertical-align: middle;
-}
-
-
-/* =========================
+/* =================================
    RESPONSIVE DESIGN
-========================= */
+================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
 
-    body {
-        padding: 15px;
+    .dashboard {
+        grid-template-columns: 1fr;
     }
 
-    header,
-    .add-expense-section,
-    .expenses-section,
-    .video-section,
-    details {
+    .sidebar {
+        border-right: none;
+
+        border-bottom: 1px solid var(--border-color);
+
         padding: 18px;
     }
 
-    .add-expense-section input,
-    .add-expense-section select,
-    button {
-        width: 100%;
-        margin-right: 0;
+    .logo {
+        margin-bottom: 15px;
     }
 
-    table {
-        font-size: 14px;
+    .navigation {
+        flex-direction: row;
+
+        flex-wrap: wrap;
     }
 
-    th,
-    td {
-        padding: 10px;
+    .navigation a {
+        flex: 1;
+        text-align: center;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =================================
+   DARK THEME - STRETCH GOAL
+================================= */
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --brand-color: #60a5fa;
+        --accent-color: #4ade80;
+
+        --surface-color: #1e293b;
+        --background-color: #0f172a;
+
+        --primary-text: #f8fafc;
+        --secondary-text: #cbd5e1;
+
+        --border-color: #334155;
+    }
+
+    .navigation a:hover {
+        background-color: #334155;
     }
 }
