@@ -1,50 +1,52 @@
-# Budget Tracker
+# SpendWise
 
-## Project Description
+SpendWise is a simple budgeting application that helps users enter their budget and expenses and calculate their remaining balance.
 
-This project is a simple Budget Tracker created using HTML and CSS.
+## JavaScript Concepts Implemented
 
-The Budget Tracker allows users to view expenses and enter new expense information.
+The project uses basic JavaScript concepts including:
 
-## What I Built
+- Variables
+- Numbers and data types
+- User input
+- Calculations
+- Functions
+- Console output
 
-### 1. Header
-The header contains the title and description of the Budget Tracker.
+## Variables
 
-### 2. Add Expense Form
-The form allows users to enter:
-- Expense name
-- Amount
-- Category
+Variables are used to store the monthly budget and individual expenses.
 
-The category is selected from options such as Food, Transport, Rent, Entertainment, and Other.
+For example:
 
-### 3. Expense Table
-The table displays expense information using:
-- Name
-- Amount
-- Category
-- Date
+let budget = 0;
+let expense1 = 0;
 
-The table has borders, spacing, a colored header, alternating row colors, and a hover effect.
+These variables store the information entered by the user.
 
-### 4. Typography
-Google Fonts are used to make the headings and body text easier to read.
+## User Input
 
-### 5. Color Palette
-A consistent blue, white, and light-gray color palette is used throughout the website.
+The JavaScript `prompt()` function is used to collect information from the user.
 
-### 6. Box Model
-Margin, padding, borders, and border-radius are used to separate the different sections and make the page organized.
+The `Number()` function converts the input into a number so that calculations can be performed.
 
-### 7. Multimedia
-The project includes a logo/image and an embedded YouTube video.
+## Calculations
 
-### 8. Responsive Design
-CSS media queries are included so that the Budget Tracker can also work on smaller screens.
+SpendWise calculates the total expenses by adding the individual expenses together.
+
+It then subtracts the total expenses from the budget to determine the remaining balance.
+
+## Functions
+
+Functions are used to organize and reuse the budgeting calculations.
+
+The project includes:
+
+- `calculateTotalExpenses()` - calculates the total expenses.
+- `calculateBalance()` - calculates the remaining balance.
 
 ## Technologies Used
 
-- HTML5
-- CSS3
-- Google Fonts
+- HTML
+- CSS
+- JavaScript
